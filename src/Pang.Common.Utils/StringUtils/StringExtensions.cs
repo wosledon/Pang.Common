@@ -20,7 +20,7 @@ public static class StringExtensions
             return 0;
         }
 
-        Int16.TryParse(str, out var result);
+        Int16.TryParse(str.ReplaceWhiteSpace(), out var result);
 
         return result;
     }
@@ -38,7 +38,7 @@ public static class StringExtensions
             return 0;
         }
 
-        Int16.TryParse(str, out var result);
+        Int16.TryParse(str.ReplaceWhiteSpace(), out var result);
 
         return result;
     }
@@ -56,7 +56,7 @@ public static class StringExtensions
             return 0;
         }
 
-        Int32.TryParse(str, out var result);
+        Int32.TryParse(str.ReplaceWhiteSpace(), out var result);
 
         return result;
     }
@@ -74,7 +74,7 @@ public static class StringExtensions
             return 0;
         }
 
-        Int32.TryParse(str, out var result);
+        Int32.TryParse(str.ReplaceWhiteSpace(), out var result);
 
         return result;
     }
@@ -92,7 +92,7 @@ public static class StringExtensions
             return 0;
         }
 
-        Int64.TryParse(str, out var result);
+        Int64.TryParse(str.ReplaceWhiteSpace(), out var result);
 
         return result;
     }
@@ -110,8 +110,54 @@ public static class StringExtensions
             return 0;
         }
 
-        Int64.TryParse(str, out var result);
+        Int64.TryParse(str.ReplaceWhiteSpace(), out var result);
 
         return result;
+    }
+
+    /// <summary>
+    /// 转浮点数
+    /// </summary>
+    /// <param name="str"> </param>
+    /// <returns> </returns>
+    public static float ToFloat(this string str)
+    {
+        if (string.IsNullOrEmpty(str) ||
+            string.IsNullOrWhiteSpace(str))
+        {
+            return 0f;
+        }
+
+        float.TryParse(str.ReplaceWhiteSpace(), out var result);
+
+        return result;
+    }
+
+    /// <summary>
+    /// 转双精度浮点数
+    /// </summary>
+    /// <param name="str"> </param>
+    /// <returns> </returns>
+    public static double ToDouble(this string str)
+    {
+        if (string.IsNullOrEmpty(str) ||
+            string.IsNullOrWhiteSpace(str))
+        {
+            return 0d;
+        }
+
+        double.TryParse(str.ReplaceWhiteSpace(), out var result);
+
+        return result;
+    }
+
+    /// <summary>
+    /// 置换掉所有空格
+    /// </summary>
+    /// <param name="str"> </param>
+    /// <returns> </returns>
+    public static string ReplaceWhiteSpace(this string str)
+    {
+        return str.Replace(" ", "");
     }
 }
