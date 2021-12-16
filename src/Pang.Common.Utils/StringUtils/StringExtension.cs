@@ -5,7 +5,7 @@ namespace Pang.Common.Utils.StringUtils;
 /// <summary>
 /// 字符串扩展类
 /// </summary>
-public static class StringExtensions
+public static class StringExtension
 {
     /// <summary>
     /// 转Int16
