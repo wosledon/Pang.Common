@@ -160,4 +160,9 @@ public static class StringExtension
     {
         return str.Replace(" ", "");
     }
+
+    public static string? ToStringOrDefault(this object? obj)
+    {
+        return obj is null ? string.Empty : obj.ToString();
+    }
 }
